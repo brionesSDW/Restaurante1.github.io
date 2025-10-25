@@ -1,0 +1,49 @@
+:root {
+    /* Tipografía base y escala */
+    font-size: 16px;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* Espaciados */
+    --header-height: 5rem;
+    --padding-global: 1.5rem;
+
+    /* Colores - modo claro */
+    --color-bg: #f6eded;
+    --color-text: #222222;
+    --color-text-secondary: #918d8d;
+    --color-primary: #e63946;
+    --color-primary-light: #f28b82;
+    --color-primary-hover: #d62839;
+    --color-section-bg: #d9c3c3;
+    --color-section-bg-alt: #dec4c4;
+    --color-section-border: #ddd;
+    --color-shadow: rgba(0, 0, 0, 0.08);
+    --color-shadow-hover: rgba(230, 57, 70, 0.15);
+
+    /* Colores - modo oscuro */
+    --color-bg-dark: #121212;
+    --color-text-dark: #f0f0f0;
+    --color-text-secondary-dark: #a0a0a0;
+    --color-primary-dark: #ef4444;
+    --color-primary-hover-dark: #ff5555;
+    --color-section-bg-dark: #1e1e1e;
+    --color-section-bg-alt-dark: #2a2a2a;
+    --color-section-border-dark: #444;
+    --color-shadow-dark: rgba(0, 0, 0, 0.7);
+    --color-shadow-hover-dark: rgba(239, 68, 68, 0.25);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-dark);
+}

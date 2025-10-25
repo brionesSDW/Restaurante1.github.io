@@ -1,0 +1,260 @@
+.footer {
+    background-color: var(--color-section-bg);
+    border-top: 1px solid var(--color-section-border);
+    padding: 3rem var(--padding-global) 2rem;
+    text-align: center;
+    margin-top: 4rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark .footer {
+    background-color: var(--color-section-bg-dark);
+    border-top-color: var(--color-section-border-dark);
+}
+
+.footer > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer > ul li {
+    margin: 0;
+}
+
+.footer > ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--color-section-bg-alt);
+    border: 2px solid var(--color-section-border);
+    border-radius: 50%;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    box-shadow: 0 0.25rem 0.75rem var(--color-shadow);
+}
+
+.footer > ul li a:hover {
+    background-color: var(--color-primary);
+    color: var(--color-section-bg-alt);
+    border-color: var(--color-primary);
+    transform: translateY(-0.25rem) scale(1.05);
+    box-shadow: 0 0.5rem 1.5rem var(--color-shadow-hover);
+}
+
+body.dark .footer > ul li a {
+    background-color: var(--color-section-bg-alt-dark);
+    border-color: var(--color-section-border-dark);
+    color: var(--color-primary-dark);
+    box-shadow: 0 0.25rem 0.75rem var(--color-shadow-dark);
+}
+
+body.dark .footer > ul li a:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-section-bg-alt-dark);
+    border-color: var(--color-primary-dark);
+    box-shadow: 0 0.5rem 1.5rem var(--color-shadow-hover-dark);
+}
+
+.footer > a {
+    display: block;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer > a:hover {
+    color: var(--color-primary);
+}
+
+body.dark .footer > a {
+    color: var(--color-text-secondary-dark);
+}
+
+body.dark .footer > a:hover {
+    color: var(--color-primary-dark);
+}
+
+.footer-a-Direccion {
+    font-weight: 500;
+    font-size: 1.0625rem;
+}
+
+.footer > a[href^="tel"] {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+}
+
+.footer > a[href^="tel"]:hover {
+    color: var(--color-primary-hover);
+}
+
+body.dark .footer > a[href^="tel"] {
+    color: var(--color-primary-dark);
+}
+
+body.dark .footer > a[href^="tel"]:hover {
+    color: var(--color-primary-hover-dark);
+}
+
+.footer h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0 0 1.5rem 0;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.footer h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3rem;
+    height: 0.25rem;
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+    border-radius: 0.125rem;
+}
+
+body.dark .footer h3 {
+    color: var(--color-primary-dark);
+}
+
+body.dark .footer h3::after {
+    background: linear-gradient(90deg, transparent, var(--color-primary-dark), transparent);
+}
+
+.footer-ul-horario {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    text-align: left;
+    background-color: var(--color-section-bg-alt);
+    border-radius: 0.75rem;
+    padding: 1.5rem 2rem;
+    border: 1px solid var(--color-section-border);
+    box-shadow: 0 0.25rem 0.75rem var(--color-shadow);
+    transition: all 0.3s ease;
+}
+
+body.dark .footer-ul-horario {
+    background-color: var(--color-section-bg-alt-dark);
+    border-color: var(--color-section-border-dark);
+    box-shadow: 0 0.25rem 1rem var(--color-shadow-dark);
+}
+
+.footer-ul-horario li {
+    margin-bottom: 0.875rem;
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.footer-ul-horario li:last-child {
+    margin-bottom: 0;
+}
+
+body.dark .footer-ul-horario li {
+    color: var(--color-text-secondary-dark);
+}
+
+.footer-ul-horario li strong {
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+body.dark .footer-ul-horario li strong {
+    color: var(--color-text-dark);
+}
+
+footer > h4{
+    font-size: 2rem;
+}
+
+footer > iframe{
+    margin: 1rem;
+    padding: 0.4rem;
+    border: 0.1rem solid coral;
+    width: 200px;
+    height: 250px;
+}
+
+@media (min-width: 40rem) {
+    .footer {
+        padding: 4rem var(--padding-global) 3rem;
+    }
+
+    .footer > ul {
+        gap: 2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .footer > ul li a {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.75rem;
+    }
+
+    .footer-a-Direccion {
+        font-size: 1.125rem;
+    }
+
+    .footer > a[href^="tel"] {
+        font-size: 1.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .footer h3 {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer-ul-horario {
+        padding: 2rem 3rem;
+    }
+
+    .footer-ul-horario li {
+        font-size: 1.0625rem;
+        margin-bottom: 1rem;
+    }
+    .footer > iframe{
+        height: 350px;
+        width: 300px;
+    }
+}
+
+@media (min-width: 64rem) {
+    .footer {
+        padding: 5rem var(--padding-global) 4rem;
+    }
+
+    .footer > ul {
+        gap: 2.5rem;
+    }
+
+    .footer h3 {
+        font-size: 2rem;
+    }
+    .footer > iframe{
+        height: 450px;
+        width: 400px;
+    }
+}

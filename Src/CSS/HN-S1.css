@@ -1,0 +1,291 @@
+
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--color-section-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 0.25rem 1rem var(--color-shadow);
+    border-bottom: 1px solid var(--color-section-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark .header {
+    background-color: var(--color-section-bg-dark);
+    border-bottom-color: var(--color-section-border-dark);
+    box-shadow: 0 0.25rem 1rem var(--color-shadow-dark);
+}
+
+/* Logo */
+.hd-p-logo {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-primary);
+    transition: color 0.3s ease;
+}
+
+body.dark .hd-p-logo {
+    color: var(--color-primary-dark);
+}
+
+/* Botones */
+.hd-bn-modos,
+.hd-bn-hamburguesa {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.hd-bn-modos:hover,
+.hd-bn-hamburguesa:hover {
+    background-color: var(--color-section-bg-alt);
+    color: var(--color-primary);
+}
+
+body.dark .hd-bn-modos,
+body.dark .hd-bn-hamburguesa {
+    color: var(--color-text-dark);
+}
+
+body.dark .hd-bn-modos:hover,
+body.dark .hd-bn-hamburguesa:hover {
+    background-color: var(--color-section-bg-alt-dark);
+    color: var(--color-primary-dark);
+}
+
+/* Iconos de modo */
+.hd-bn-modos-sun,
+.hd-bn-modos-moon {
+    display: none;
+}
+
+body:not(.dark) .hd-bn-modos-sun {
+    display: inline;
+}
+
+body.dark .hd-bn-modos-moon {
+    display: inline;
+}
+
+/* Navegación */
+.hd-nav {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background-color: var(--color-section-bg);
+    display: none;
+    flex-direction: column;
+    padding: 1rem var(--padding-global);
+    border-top: 1px solid var(--color-section-border);
+    box-shadow: 0 0.5rem 1rem var(--color-shadow);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark .hd-nav {
+    background-color: var(--color-section-bg-dark);
+    border-top-color: var(--color-section-border-dark);
+    box-shadow: 0 0.5rem 1rem var(--color-shadow-dark);
+}
+
+.hd-nav.nav-abierto {
+    display: flex;
+}
+
+/* Lista de navegación */
+.hd-nav-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Enlaces de navegación */
+.hd-nav-ul-li-a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 1.125rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    font-weight: 500;
+}
+
+.hd-nav-ul-li-a:hover {
+    background-color: var(--color-section-bg-alt);
+    color: var(--color-primary);
+    transform: translateX(0.25rem);
+}
+
+body.dark .hd-nav-ul-li-a {
+    color: var(--color-text-dark);
+}
+
+body.dark .hd-nav-ul-li-a:hover {
+    background-color: var(--color-section-bg-alt-dark);
+    color: var(--color-primary-dark);
+}
+
+/* Estados del botón hamburguesa */
+.hd-bn-hamburguesa.activo .bi-list {
+    display: none;
+}
+
+.hd-bn-hamburguesa.activo .bi-x-lg {
+    display: inline;
+}
+
+.hd-bn-hamburguesa .bi-x-lg {
+    display: none;
+}
+
+/* Scroll offset para anclas */
+[id] {
+    scroll-margin-top: var(--header-height);
+    padding-top: var(--header-height);
+}
+
+/* Submenú */
+.submenu {
+    display: none;
+    list-style: none;
+    margin: 0.5rem 0 0 0;
+    padding: 0.75rem 1rem;
+    background-color: var(--color-section-bg-alt);
+    border-left: 0.25rem solid var(--color-primary);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.75rem var(--color-shadow);
+    transition: all 0.3s ease;
+}
+
+body.dark .submenu {
+    background-color: var(--color-section-bg-alt-dark);
+    border-left-color: var(--color-primary-dark);
+    box-shadow: 0 0.25rem 0.75rem var(--color-shadow-dark);
+}
+
+.submenu li a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+}
+
+.submenu li a:hover {
+    background-color: var(--color-section-bg);
+    color: var(--color-primary);
+    padding-left: 1rem;
+}
+
+body.dark .submenu li a {
+    color: var(--color-text-secondary-dark);
+}
+
+body.dark .submenu li a:hover {
+    background-color: var(--color-section-bg-dark);
+    color: var(--color-primary-dark);
+}
+
+.submenu-abierto {
+    display: block;
+}
+
+@media (min-width: 48rem) {
+    .hd-nav {
+        position: static;
+        display: flex !important;
+        flex-direction: row;
+        align-items: center;
+        background: none;
+        padding: 0 1rem;
+        border: none;
+        box-shadow: none;
+    }
+
+    .hd-nav-ul {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .hd-bn-hamburguesa {
+        display: none;
+    }
+
+    .hd-nav-ul-li-a {
+        font-size: 1rem;
+        padding: 0.625rem 1rem;
+    }
+
+    .hd-nav-ul-li-a:hover {
+        transform: translateY(-0.125rem);
+    }
+
+    .hd-nav-ul-li {
+        position: relative;
+    }
+
+    .hd-nav-ul-li:hover > .submenu {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 12rem;
+        z-index: 1001;
+        margin: 0;
+        background-color: var(--color-section-bg);
+        border: 1px solid var(--color-section-border);
+        box-shadow: 0 0.5rem 1.5rem var(--color-shadow);
+    }
+
+    body.dark .hd-nav-ul-li:hover > .submenu {
+        background-color: var(--color-section-bg-dark);
+        border-color: var(--color-section-border-dark);
+        box-shadow: 0 0.5rem 1.5rem var(--color-shadow-dark);
+    }
+
+    .submenu li a {
+        padding: 0.75rem 1rem;
+    }
+
+    .submenu li a:hover {
+        padding-left: 1.25rem;
+    }
+}
+
+@media (min-width: 64rem) {
+    .hd-p-logo {
+        font-size: 1.75rem;
+    }
+
+    .hd-nav-ul {
+        gap: 1rem;
+    }
+
+    .hd-nav-ul-li-a {
+        padding: 0.75rem 1.25rem;
+    }
+}

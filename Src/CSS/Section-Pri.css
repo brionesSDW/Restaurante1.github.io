@@ -1,0 +1,74 @@
+
+
+/* Estilos para la sección principal */
+.main-section-Pri {
+    background-color: var(--color-section-bg);
+    padding: 2rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.05);
+    max-width: 40rem;
+    margin: 6rem auto 3rem auto; /* separado del header fijo y centrado */
+    border: 1px solid var(--color-section-border);
+    text-align: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark .main-section-Pri {
+    background-color: var(--color-section-bg-dark);
+    border-color: var(--color-section-border-dark);
+    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.7);
+}
+
+/* Título */
+.main-section-Pri h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+    transition: color 0.3s ease;
+}
+
+body.dark .main-section-Pri h1 {
+    color: var(--color-primary-dark);
+}
+
+/* Párrafos */
+.main-section-Pri p {
+    font-size: 1.125rem;
+    margin: 0.5rem 0;
+    color: inherit;
+}
+
+/* Responsive: tablets */
+@media (min-width: 48rem) {
+    .main-section-Pri {
+        max-width: 48rem;
+        padding: 3rem 2rem;
+        margin-top: 7rem;
+    }
+
+    .main-section-Pri h1 {
+        font-size: 2.5rem;
+    }
+
+    .main-section-Pri p {
+        font-size: 1.25rem;
+    }
+}
+
+/* Responsive: desktop */
+@media (min-width: 64rem) {
+    .main-section-Pri {
+        max-width: 60rem;
+        padding: 4rem 3rem;
+        margin-top: 8rem;
+    }
+
+    .main-section-Pri h1 {
+        font-size: 3rem;
+    }
+
+    .main-section-Pri p {
+        font-size: 1.5rem;
+    }
+}
