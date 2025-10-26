@@ -47,6 +47,31 @@ export function agregarProducto(categoriaId, datosProducto) {
     seccion.appendChild(articulo);
 }
 
+function actualizarSubmenu() {
+    const submenu = document.querySelector(".submenu");
+    if (!submenu) return;
+
+    submenu.innerHTML = "";
+
+    const categorias = document.querySelectorAll(".main-section-p");
+    categorias.forEach(categoria => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = `#${categoria.id}`;
+        a.textContent = categoria.querySelector("h2").textContent;
+        
+        a.addEventListener("click", () => {
+            if (window.innerWidth < 768) {
+                submenu.classList.remove("submenu-abierto");
+                document.querySelector(".hd-nav").classList.remove("nav-abierto");
+                document.querySelector(".hd-bn-hamburguesa").classList.remove("activo");
+            }
+        });
+        
+        li.appendChild(a);
+        submenu.appendChild(li);
+    });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const body = document.body;
@@ -61,17 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
             body.classList.remove("dark");
         }
     }
-
-    const categoriasItem = document.querySelector(".hd-nav-ul-li:nth-child(2)");
-    const submenu = categoriasItem.querySelector(".submenu");
-
-    categoriasItem.addEventListener("click", (e) => {
-        if (window.innerWidth < 768) {
-            e.preventDefault();
-            submenu.classList.toggle("submenu-abierto");
-        }
-    });
-
 
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -92,6 +106,29 @@ document.addEventListener("DOMContentLoaded", () => {
         toggleMenuBtn.classList.toggle("activo");
     });
 
+    const categoriasItem = document.querySelector(".hd-nav-ul-li:nth-child(2)");
+    const submenu = categoriasItem.querySelector(".submenu");
+    const categoriasLink = categoriasItem.querySelector(".hd-nav-ul-li-a");
+
+    categoriasLink.addEventListener("click", (e) => {
+        if (window.innerWidth < 768) {
+            e.preventDefault();
+            submenu.classList.toggle("submenu-abierto");
+        }
+    });
+
+    document.addEventListener("click", (e) => {
+        if (window.innerWidth < 768) {
+            if (!categoriasItem.contains(e.target) && !toggleMenuBtn.contains(e.target)) {
+                submenu.classList.remove("submenu-abierto");
+            }
+            if (!nav.contains(e.target) && !toggleMenuBtn.contains(e.target)) {
+                nav.classList.remove("nav-abierto");
+                toggleMenuBtn.classList.remove("activo");
+            }
+        }
+    });
+
     agregarCategoria("Categoría 1", "C1");
     agregarCategoria("Categoría 2", "C2");
     agregarCategoria("Categoría 3", "C3");
@@ -102,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
         titulo: "Platillo Especial",
         precio: "$12.500",
         descripcion: "Delicioso platillo con ingredientes frescos y sabor casero.",
-        opciones: ["Opción 1", "Opción 2","Opción 3"]
+        opciones: ["Opción 1", "Opción 2", "Opción 3"]
     });
 
     agregarProducto("C1", {
@@ -111,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
         titulo: "Platillo Especial",
         precio: "$12.500",
         descripcion: "Delicioso platillo con ingredientes frescos y sabor casero.",
-        opciones: ["Opción 1", "Opción 2","Opción 3"]
+        opciones: ["Opción 1", "Opción 2", "Opción 3"]
     });
 
     agregarProducto("C1", {
@@ -120,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
         titulo: "Platillo Especial",
         precio: "$12.500",
         descripcion: "Delicioso platillo con ingredientes frescos y sabor casero.",
-        opciones: ["Opción 1", "Opción 2","Opción 3"]
+        opciones: ["Opción 1", "Opción 2", "Opción 3"]
     });
 
     agregarProducto("C1", {
@@ -129,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
         titulo: "Platillo Especial",
         precio: "$12.500",
         descripcion: "Delicioso platillo con ingredientes frescos y sabor casero.",
-        opciones: ["Opción 1", "Opción 2","Opción 3"]
+        opciones: ["Opción 1", "Opción 2", "Opción 3"]
     });
 
     agregarProducto("C2", {
@@ -138,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
         titulo: "Platillo Especial",
         precio: "$12.500",
         descripcion: "Delicioso platillo con ingredientes frescos y sabor casero.",
-        opciones: ["Opción 1", "Opción 2","Opción 3"]
+        opciones: ["Opción 1", "Opción 2", "Opción 3"]
     });
 
     agregarProducto("C2", {
@@ -147,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
         titulo: "Platillo Especial",
         precio: "$12.500",
         descripcion: "Delicioso platillo con ingredientes frescos y sabor casero.",
-        opciones: ["Opción 1", "Opción 2","Opción 3"]
+        opciones: ["Opción 1", "Opción 2", "Opción 3"]
     });
 
     agregarProducto("C2", {
@@ -156,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
         titulo: "Platillo Especial",
         precio: "$12.500",
         descripcion: "Delicioso platillo con ingredientes frescos y sabor casero.",
-        opciones: ["Opción 1", "Opción 2","Opción 3"]
+        opciones: ["Opción 1", "Opción 2", "Opción 3"]
     });
 
     agregarProducto("C2", {
@@ -165,7 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
         titulo: "Platillo Especial",
         precio: "$12.500",
         descripcion: "Delicioso platillo con ingredientes frescos y sabor casero.",
-        opciones: ["Opción 1", "Opción 2","Opción 3"]
+        opciones: ["Opción 1", "Opción 2", "Opción 3"]
     });
 
     agregarProducto("C3", {
@@ -174,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
         titulo: "Platillo Especial",
         precio: "$12.500",
         descripcion: "Delicioso platillo con ingredientes frescos y sabor casero.",
-        opciones: ["Opción 1", "Opción 2","Opción 3"]
+        opciones: ["Opción 1", "Opción 2", "Opción 3"]
     });
 
     agregarProducto("C3", {
@@ -183,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
         titulo: "Platillo Especial",
         precio: "$12.500",
         descripcion: "Delicioso platillo con ingredientes frescos y sabor casero.",
-        opciones: ["Opción 1", "Opción 2","Opción 3"]
+        opciones: ["Opción 1", "Opción 2", "Opción 3"]
     });
 
     agregarProducto("C3", {
@@ -192,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
         titulo: "Platillo Especial",
         precio: "$12.500",
         descripcion: "Delicioso platillo con ingredientes frescos y sabor casero.",
-        opciones: ["Opción 1", "Opción 2","Opción 3"]
+        opciones: ["Opción 1", "Opción 2", "Opción 3"]
     });
 
     agregarProducto("C3", {
@@ -201,6 +238,8 @@ document.addEventListener("DOMContentLoaded", () => {
         titulo: "Platillo Especial",
         precio: "$12.500",
         descripcion: "Delicioso platillo con ingredientes frescos y sabor casero.",
-        opciones: ["Opción 1", "Opción 2","Opción 3"]
+        opciones: ["Opción 1", "Opción 2", "Opción 3"]
     });
+
+    actualizarSubmenu();
 });
